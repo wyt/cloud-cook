@@ -1,0 +1,9 @@
+spring:
+  app:
+    name: turbine-service
+  cloud:
+    config:
+      fail-fast: true
+      uri: http://localhost:7766  # 配置中心地址
+  profiles:
+    active: dev

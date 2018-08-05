@@ -1,0 +1,10 @@
+server:
+  port: 7788
+
+security.basic.enabled: false
+
+turbine:
+  aggregator:
+    clusterConfig: default
+  appConfig: app-sample-consume , app-sample-produce #, app-dlink-device , app-dlink-plugin , app-dlink-script
+  clusterNameExpression: new String("default")
