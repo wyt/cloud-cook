@@ -1,5 +1,0 @@
-server:
-  port: 9600
-
-logging:
-  file: "logs/app-dlink-plugin.log"

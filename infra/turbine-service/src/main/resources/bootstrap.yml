@@ -1,5 +1,5 @@
 spring:
-  app:
+  application:
     name: turbine-service
   cloud:
     config:

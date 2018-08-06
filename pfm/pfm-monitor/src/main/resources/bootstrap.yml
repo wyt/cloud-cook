@@ -1,5 +1,5 @@
 spring:
-  app:
+  application:
     name: pfm-monitor
   cloud:
     config:

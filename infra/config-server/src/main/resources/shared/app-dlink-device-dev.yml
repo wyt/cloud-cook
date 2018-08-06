@@ -1,5 +1,0 @@
-server:
-  port: 9500
-
-logging:
-  file: "logs/app-dlink-device.log"

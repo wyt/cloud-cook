@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HiController {
 
-  @Value("${spring.app.name}")
+  @Value("${spring.application.name}")
   String appName;
 
   @Value("${server.port}")

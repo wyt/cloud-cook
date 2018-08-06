@@ -1,5 +1,0 @@
-server:
-  port: 9700
-
-logging:
-  file: "logs/app-dlink-script.log"
