@@ -47,7 +47,7 @@
           </execution>
         </executions>
         <configuration>
-          <repository>dlink-ops/eureka-server</repository>
+          <repository>wangyt/eureka-server</repository>
           <tag>${project.version}</tag>
           <buildArgs>
             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

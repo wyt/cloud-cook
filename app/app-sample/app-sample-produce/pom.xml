@@ -41,7 +41,7 @@
           </execution>
         </executions>
         <configuration>
-          <repository>dlink-ops/app-sample-produce</repository>
+          <repository>wangyt/app-sample-produce</repository>
           <tag>${project.version}</tag>
           <buildArgs>
             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

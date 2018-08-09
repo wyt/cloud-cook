@@ -1,12 +1,12 @@
 version: '3'
 services:
   eureka-server:
-    image: dlink-ops/eureka-server:1.0.0-SNAPSHOT
+    image: wangyt/eureka-server:1.0.0-SNAPSHOT
     restart: always
     ports:
       - 7777:7777
   config-server:
-    image: dlink-ops/config-server:1.0.0-SNAPSHOT
+    image: wangyt/config-server:1.0.0-SNAPSHOT
     restart: always
     ports:
       - 7766:7766

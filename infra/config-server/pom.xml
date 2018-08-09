@@ -45,7 +45,7 @@
           </execution>
         </executions>
         <configuration>
-          <repository>dlink-ops/config-server</repository>
+          <repository>wangyt/config-server</repository>
           <tag>${project.version}</tag>
           <buildArgs>
             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

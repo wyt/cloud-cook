@@ -56,7 +56,7 @@
           </execution>
         </executions>
         <configuration>
-          <repository>dlink-ops/app-sample-consume</repository>
+          <repository>wangyt/app-sample-consume</repository>
           <tag>${project.version}</tag>
           <buildArgs>
             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

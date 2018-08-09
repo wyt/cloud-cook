@@ -63,7 +63,7 @@
           </execution>
         </executions>
         <configuration>
-          <repository>dlink-ops/gateway-service</repository>
+          <repository>wangyt/gateway-service</repository>
           <tag>${project.version}</tag>
           <buildArgs>
             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

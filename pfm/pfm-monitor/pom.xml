@@ -74,7 +74,7 @@
           </execution>
         </executions>
         <configuration>
-          <repository>dlink-ops/pfm-monitor</repository>
+          <repository>wangyt/pfm-monitor</repository>
           <tag>${project.version}</tag>
           <buildArgs>
             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

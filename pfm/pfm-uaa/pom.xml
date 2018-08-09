@@ -61,7 +61,7 @@
           </execution>
         </executions>
         <configuration>
-          <repository>dlink-ops/pfm-uaa</repository>
+          <repository>wangyt/pfm-uaa</repository>
           <tag>${project.version}</tag>
           <buildArgs>
             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
