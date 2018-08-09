@@ -11,7 +11,7 @@ eureka:
 #Zipkin服务地址
 spring:
   zipkin:
-    base-url: http://localhost:7755
+    base-url: http://zipkin-service:7755
   sleuth:
     sampler:
       percentage: 1.0
