@@ -16,8 +16,6 @@ spring:
 eureka:
   client:
     registryFetchIntervalSeconds: 5
-#    serviceUrl:
-#      defaultZone: http://localhost:7777/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 10
     metadata-map:

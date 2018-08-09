@@ -6,7 +6,7 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:7777/eureka/
+      defaultZone: http://eureka-server:7777/eureka/
 
 #Zipkin服务地址
 spring:
