@@ -1,9 +1,6 @@
 server:
   port: 9003
 
-logging:
-  file: "logs/app-sample-produce.log"
-
 # 测试配置参数
 config:
     test:

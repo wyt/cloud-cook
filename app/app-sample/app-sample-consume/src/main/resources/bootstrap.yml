@@ -7,3 +7,6 @@ spring:
       uri: http://config-server:7766  # 配置中心地址
   profiles:
     active: dev
+logging:
+  path: /applog
+  file: "${logging.path}/${spring.application.name}.log"

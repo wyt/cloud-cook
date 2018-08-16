@@ -1,11 +1,11 @@
-FROM java:8
+FROM winchannel/springboot-assy-filebeat
 
 MAINTAINER wangyongtao
 
 ARG JAR_FILE
 
-ADD ./target/${JAR_FILE} app.jar
+ADD ./target/${JAR_FILE} ${JAR_FILE}
 
 EXPOSE 9002
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["sh","/filebeat-springboot-entrypoint.sh","/${JAR_FILE}"]
