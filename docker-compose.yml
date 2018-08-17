@@ -2,33 +2,28 @@ version: '3'
 services:
   eureka-server:
     image: wangyt/eureka-server:1.0.0-SNAPSHOT
-    restart: always
     ports:
       - 7777:7777
   config-server:
     image: wangyt/config-server:1.0.0-SNAPSHOT
-    restart: always
     depends_on:
       - eureka-server
     ports:
       - 7766:7766
   gateway-service:
     image: wangyt/gateway-service:1.0.0-SNAPSHOT
-    restart: always
     depends_on:
       - config-server
     ports:
       - 7000:7000
   turbine-service:
     image: wangyt/turbine-service:1.0.0-SNAPSHOT
-    restart: always
     depends_on:
       - config-server
     ports:
       - 7788:7788
   zipkin-service:
     image: wangyt/zipkin-service:1.0.0-SNAPSHOT
-    restart: always
     depends_on:
       - config-server
     ports:
@@ -36,14 +31,12 @@ services:
 
   pfm-monitor:
     image: wangyt/pfm-monitor:1.0.0-SNAPSHOT
-    restart: always
     depends_on:
       - config-server
     ports:
       - 8000:8000
   pfm-uaa:
     image: wangyt/pfm-uaa:1.0.0-SNAPSHOT
-    restart: always
     depends_on:
       - config-server
     ports:
@@ -51,14 +44,12 @@ services:
 
   app-sample-consume:
     image: wangyt/app-sample-consume:1.0.0-SNAPSHOT
-    restart: always
     depends_on:
       - config-server
     ports:
       - 9002:9002
   app-sample-produce:
     image: wangyt/app-sample-produce:1.0.0-SNAPSHOT
-    restart: always
     depends_on:
       - config-server
     ports:

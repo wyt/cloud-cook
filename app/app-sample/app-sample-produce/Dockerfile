@@ -4,8 +4,8 @@ MAINTAINER wangyongtao
 
 ARG JAR_FILE
 
-ADD ./target/${JAR_FILE} ${JAR_FILE}
+ADD ./target/${JAR_FILE} app-sample-produce.jar
 
 EXPOSE 9003
 
-ENTRYPOINT ["sh","/filebeat-springboot-entrypoint.sh","/${JAR_FILE}"]
+ENTRYPOINT ["sh","/filebeat-springboot-entrypoint.sh","/app-sample-produce.jar"]
