@@ -3,16 +3,18 @@
 
 version: '3'
 services:
-  eureka-server:
-    image: wangyt/eureka-server:1.0.0-SNAPSHOT
+  app-sample-consume:
+    image: wangyt/app-sample-consume:1.0.0-SNAPSHOT
     ports:
-      - 7777:7777
-  config-server:
-    image: wangyt/config-server:1.0.0-SNAPSHOT
-    depends_on:
-      - eureka-server
+      - 9002:9002
+    environment:
+      - spring.profiles.active=intg
+  app-sample-produce:
+    image: wangyt/app-sample-produce:1.0.0-SNAPSHOT
     ports:
-      - 7766:7766
+      - 9003:9003
+    environment:
+      - spring.profiles.active=intg
 networks:
   default:
     external:
