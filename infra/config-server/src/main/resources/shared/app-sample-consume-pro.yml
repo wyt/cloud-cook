@@ -1,5 +1,2 @@
 server:
   port: 9002
-
-logging:
-  file: "logs/app-sample-consume.log"
