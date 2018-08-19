@@ -8,4 +8,4 @@ ADD ./target/${JAR_FILE} app-sample-consume.jar
 
 EXPOSE 9002
 
-ENTRYPOINT ["sh","/filebeat-springboot-entrypoint.sh","/app-sample-consume.jar"]
+ENTRYPOINT ["sh","/filebeat-springboot-entrypoint.sh","/app-sample-consume.jar","--spring.profiles.active=${spring.profiles.active}"]
