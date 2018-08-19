@@ -1,0 +1,19 @@
+# 需要事先创建网络 docker network create cloud-coo
+# docker network ls
+
+version: '3'
+services:
+  eureka-server:
+    image: wangyt/eureka-server:1.0.0-SNAPSHOT
+    ports:
+      - 7777:7777
+  config-server:
+    image: wangyt/config-server:1.0.0-SNAPSHOT
+    depends_on:
+      - eureka-server
+    ports:
+      - 7766:7766
+networks:
+  default:
+    external:
+      name: cloud-cook

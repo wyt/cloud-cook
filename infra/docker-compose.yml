@@ -1,0 +1,17 @@
+# 需要事先创建网络 docker network create cloud-coo
+# docker network ls
+
+version: '3'
+services:
+  app-sample-consume:
+    image: wangyt/app-sample-consume:1.0.0-SNAPSHOT
+    ports:
+      - 9002:9002
+  app-sample-produce:
+    image: wangyt/app-sample-produce:1.0.0-SNAPSHOT
+    ports:
+      - 9003:9003
+networks:
+  default:
+    external:
+      name: cloud-cook
