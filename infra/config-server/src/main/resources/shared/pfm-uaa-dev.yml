@@ -1,5 +1,2 @@
 server:
   port: 8001
-
-logging:
-  file: "logs/app-sample-produce.log"

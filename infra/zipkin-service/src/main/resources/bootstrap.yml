@@ -3,8 +3,15 @@ spring:
     name: zipkin-service
   cloud:
     config:
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config-server
       fail-fast: true
-      uri: http://config-server:7766  # 配置中心地址
-  profiles:
-    active: dev
-
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:7777/eureka/
+logging:
+  path: /applog
+  file: "${logging.path}/${spring.application.name}.log"

@@ -1,9 +1,6 @@
 server:
   port: 8000
 
-logging:
-  file: "logs/pfm-monitor.log"
-
 spring:
   boot:
     admin:
