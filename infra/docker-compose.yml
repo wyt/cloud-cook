@@ -8,7 +8,7 @@ services:
     ports:
       - 7777:7777
     environment:
-      - spring.profiles.active=intg
+      - SPRING_PROFILES_ACTIVE=intg
   config-server:
     image: wangyt/config-server:1.0.0-SNAPSHOT
     depends_on:
@@ -16,7 +16,7 @@ services:
     ports:
       - 7766:7766
     environment:
-      - spring.profiles.active=intg
+      - SPRING_PROFILES_ACTIVE=intg
 networks:
   default:
     external:

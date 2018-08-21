@@ -8,13 +8,13 @@ services:
     ports:
       - 9002:9002
     environment:
-      - spring.profiles.active=intg
+      - SPRING_PROFILES_ACTIVE=intg
   app-sample-produce:
     image: wangyt/app-sample-produce:1.0.0-SNAPSHOT
     ports:
       - 9003:9003
     environment:
-      - spring.profiles.active=intg
+      - SPRING_PROFILES_ACTIVE=intg
 networks:
   default:
     external:
