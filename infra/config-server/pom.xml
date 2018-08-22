@@ -48,7 +48,7 @@
           </execution>
         </executions>
         <configuration>
-          <repository>wangyt/config-server</repository>
+          <repository>wangyt/${project.artifactId}</repository>
           <tag>${project.version}</tag>
           <buildArgs>
             <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
