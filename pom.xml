@@ -68,6 +68,36 @@
     </dependencies>
   </dependencyManagement>
 
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- 打包时跳过构建镜像 mvn clean package "-Ddockerfile.skip" -->
+        <plugin>
+          <groupId>com.spotify</groupId>
+          <artifactId>dockerfile-maven-plugin</artifactId>
+          <version>1.4.3</version>
+          <executions>
+            <execution>
+              <id>default</id>
+              <goals>
+                <goal>build</goal>
+                <goal>push</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <repository>wangyt/${project.artifactId}</repository>
+            <tag>${project.version}</tag>
+            <buildArgs>
+              <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+            </buildArgs>
+            <noCache>true</noCache>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
   <modules>
     <module>infra</module>
     <module>pfm</module>

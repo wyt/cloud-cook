@@ -27,4 +27,5 @@
     <module>app-sample-consume</module>
     <module>app-sample-produce</module>
   </modules>
+
 </project>
