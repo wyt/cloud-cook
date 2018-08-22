@@ -38,6 +38,9 @@
               <goal>build</goal>
               <goal>push</goal>
             </goals>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
           </execution>
         </executions>
         <configuration>
