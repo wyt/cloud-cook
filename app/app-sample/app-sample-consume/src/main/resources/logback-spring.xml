@@ -2,13 +2,17 @@
 <configuration>
   <include resource="org/springframework/boot/logging/logback/base.xml"/>
   <jmxConfigurator/>
-  <springProfile name="intg">
+
+  <springProperty scope="context" name="springAppName" source="spring.application.name"/>
+  <springProperty scope="context" name="logstashOutputDest" source="logstash.output.destination"/>
+
+  <springProfile name="intg,sit">
     <logger name="org.springframework" level="INFO"/>
     <!-- Logstash-Configuration -->
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-      <destination>192.168.1.114:4560</destination>
+      <destination>${logstashOutputDest}</destination>
       <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-        <customFields>{"appname":"app-sample-consume"}</customFields>
+        <customFields>{"appname":"${springAppName}"}</customFields>
         <fieldNames>
           <message>log_message</message>
         </fieldNames>

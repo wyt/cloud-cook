@@ -4,4 +4,4 @@ server:
 # 测试配置参数
 config:
     test:
-      value: 16585
+      value: 10001
