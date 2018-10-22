@@ -2,10 +2,16 @@
 
 ### 使用说明
 
+在Win环境下开发，在本地设置host
+
+``` bash
+127.0.0.1 eureka-server
+```
+
 
 #### 注册中心
 
-http://localhost:7777/
+http://eureka-server:7777/
 
 http://localhost:9003/hi?name=wangyongtao1
 
