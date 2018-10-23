@@ -1,4 +1,4 @@
-FROM java:8
+FROM winchannel/springboot-assy-filebeat:1.1.1
 
 MAINTAINER wangyongtao
 
