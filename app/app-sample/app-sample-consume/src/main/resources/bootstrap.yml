@@ -8,6 +8,8 @@ spring:
         enabled: true
         service-id: config-server
       fail-fast: true
+server:
+  port: 9002
 eureka:
   instance:
     prefer-ip-address: true
