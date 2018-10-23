@@ -7,13 +7,13 @@
 `多docker compose文件同时启动`
 
 ```xml
-docker-compose -f docker-compose-infra.yml -f docker-compose-pfm.yml -f docker-compose-app-storage.yml -f docker-compose-app-dlink.yml up -d
+docker-compose -f docker-compose-infra.yml -f docker-compose-app-sample.yml up -d
 ```
 
 `查看日志`
 
 ```xml
-docker-compose -f docker-compose-infra.yml -f docker-compose-pfm.yml -f docker-compose-app-storage.yml -f docker-compose-app-dlink.yml logs -f
+docker-compose -f docker-compose-infra.yml -f docker-compose-app-sample.yml logs -f
 ```
 
 version3版本，非docker swarm环境下启动时，需要指定 compatibility参数，内存和cpu限制才会生效，reservations可能不会被支持。
@@ -23,9 +23,9 @@ https://github.com/docker/compose/pull/5684
 `相关命令`
 
 ```xml
-docker-compose --compatibility -f docker-compose-base.yml up -d
-docker-compose --compatibility -f docker-compose-base.yml logs -f
-docker-compose --compatibility -f docker-compose-base.yml kill eureka-server
+docker-compose --compatibility -f docker-compose-infra.yml up -d
+docker-compose --compatibility -f docker-compose-infra.yml logs -f
+docker-compose --compatibility -f docker-compose-infra.yml kill eureka-server
 ```
     
 ## 参与贡献
