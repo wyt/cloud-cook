@@ -1,7 +1,0 @@
-server:
-  port: 9003
-
-# 测试配置参数
-config:
-    test:
-      value: 16585

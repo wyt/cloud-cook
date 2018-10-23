@@ -32,6 +32,6 @@ endpoints:
     enabled: true
 
 # ELk环境,logtash收集入口
-logstash:
-  output:
-    destination: 192.168.1.114:4560
+#logstash:
+#  output:
+#    destination: 192.168.1.72:4560
