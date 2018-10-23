@@ -9,6 +9,8 @@ spring:
         service-id: config-server
       fail-fast: true
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://eureka-server:7777/eureka/
