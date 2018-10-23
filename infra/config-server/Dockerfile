@@ -4,8 +4,8 @@ MAINTAINER wangyongtao
 
 ARG JAR_FILE
 
-ADD ./target/${JAR_FILE} app.jar
+ADD ./target/${JAR_FILE} config-server.jar
 
 EXPOSE 7766
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["sh","/filebeat-springboot-entrypoint.sh","/config-server.jar","--spring.profiles.active=${SPRING_PROFILES_ACTIVE}"]

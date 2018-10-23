@@ -4,8 +4,8 @@ MAINTAINER wangyongtao
 
 ARG JAR_FILE
 
-ADD ./target/${JAR_FILE} app.jar
+ADD ./target/${JAR_FILE} eureka-server.jar
 
 EXPOSE 7777
 
-ENTRYPOINT ["java","-jar","/app.jar"] #容器启动时运行 java -jar app.jar
+ENTRYPOINT ["sh","/filebeat-springboot-entrypoint.sh","/eureka-server.jar","--spring.profiles.active=${SPRING_PROFILES_ACTIVE}"]
