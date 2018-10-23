@@ -100,7 +100,6 @@
 
   <modules>
     <module>infra</module>
-    <module>pfm</module>
     <module>app</module>
     <module>cmn</module>
   </modules>
