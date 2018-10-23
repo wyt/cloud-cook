@@ -1,4 +1,4 @@
-FROM winchannel/springboot-assy-filebeat:1.0.6-SNAPSHOT
+FROM winchannel/springboot-assy-filebeat:1.1.1
 
 MAINTAINER wangyongtao
 
