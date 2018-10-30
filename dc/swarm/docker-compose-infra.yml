@@ -5,6 +5,8 @@ version: '3'
 services:
   eureka-server:
     image: wangyt/eureka-server:${IMAGE_VER}
+    networks:
+       - overlay
     deploy:
       placement:
         constraints: [node.labels.type == cloud-cook]
@@ -16,6 +18,8 @@ services:
     env_file: .env
   config-server:
     image: wangyt/config-server:${IMAGE_VER}
+    networks:
+       - overlay
     deploy:
       placement:
         constraints: [node.labels.type == cloud-cook]
@@ -38,6 +42,8 @@ services:
       - 7766:7766
   gateway-service:
     image: wangyt/gateway-service:${IMAGE_VER}
+    networks:
+       - overlay
     deploy:
       placement:
         constraints: [node.labels.type == cloud-cook]
