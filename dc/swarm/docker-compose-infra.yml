@@ -1,5 +1,8 @@
-# 需要事先创建网络 docker network create cloud-cook
-# docker network ls
+# docker挖的坑
+# docker stack deploy不解析env_file
+# https://github.com/moby/moby/issues/29133#issuecomment-285980447
+# 执行 docker stack deploy之前可先执行 export $(cat .env)
+# 注意.env文件使用dos2unix转换下,防止包含win特殊字符
 
 version: '3'
 services:
@@ -13,9 +16,14 @@ services:
       resources:
         limits:
           memory: 999M
+    #优先使用compose中的entrypoint,而非Dockerfile
+    entrypoint:
+      - sh
+      - /filebeat-springboot-entrypoint.sh
+      - /eureka-server.jar
+      - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
     ports:
       - 7777:7777
-    env_file: .env
   config-server:
     image: wangyt/config-server:${IMAGE_VER}
     networks:
@@ -28,7 +36,6 @@ services:
           memory: 999M
     depends_on:
       - eureka-server
-    env_file: .env
     entrypoint:
       - ./wait-for-it.sh
       - eureka-server:7777
@@ -53,7 +60,6 @@ services:
     depends_on:
       - eureka-server
       - config-server
-    env_file: .env
     entrypoint:
       - ./wait-for-it.sh
       - config-server:7766
