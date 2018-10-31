@@ -18,7 +18,6 @@ services:
       - config-server
     ports:
       - 9002:9002
-    env_file: .env
     entrypoint:
       - ./wait-for-it.sh
       - config-server:7766
@@ -43,7 +42,6 @@ services:
       - config-server
     ports:
       - 9003:9003
-    env_file: .env
     entrypoint:
       - ./wait-for-it.sh
       - config-server:7766
