@@ -3,6 +3,7 @@
 # https://github.com/moby/moby/issues/29133#issuecomment-285980447
 # 执行 docker stack deploy之前可先执行 export $(cat .env)
 # 注意.env文件使用dos2unix转换下,防止包含win特殊字符
+# 注意 compose文件也需要dos2unix，避免遇到蛋疼的问题
 #
 # # cat .env 
 # IMAGE_VER=1.0.0-SNAPSHOT
