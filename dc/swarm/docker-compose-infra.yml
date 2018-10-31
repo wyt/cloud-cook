@@ -6,7 +6,7 @@
 # 注意 compose文件也需要dos2unix，避免遇到蛋疼的问题
 #
 # # cat .env 
-# IMAGE_VER=1.0.0-SNAPSHOT
+# IMAGE_VER=1.0.1-SNAPSHOT
 # SPRING_PROfILES_ACTIVE=intg
 # # export $(cat .env)
 # # echo ${IMAGE_VER};echo ${SPRING_PROfILES_ACTIVE}

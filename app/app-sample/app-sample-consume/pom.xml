@@ -7,7 +7,7 @@
   <parent>
     <artifactId>app-sample</artifactId>
     <groupId>github.wyt</groupId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>app-sample-consume</artifactId>
 
