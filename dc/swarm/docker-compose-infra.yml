@@ -27,7 +27,7 @@ services:
       - sh
       - /filebeat-springboot-entrypoint.sh
       - /eureka-server.jar
-      - --spring.profiles.active="${SPRING_PROFILES_ACTIVE}"
+      - --spring.profiles.active=${SPRING_PROfILES_ACTIVE}
     ports:
       - 7777:7777
   config-server:
@@ -74,7 +74,7 @@ services:
       - --
       - /filebeat-springboot-entrypoint.sh
       - /gateway-service.jar
-      - --spring.profiles.active="${SPRING_PROFILES_ACTIVE}"
+      - --spring.profiles.active=${SPRING_PROfILES_ACTIVE}
     ports:
       - 7000:7000
 networks:
