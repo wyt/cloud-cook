@@ -22,3 +22,8 @@ eureka:
 logging:
   path: /applog
   file: "${logging.path}/${spring.application.name}.log"
+
+# ELk环境,logtash收集入口
+logstash:
+  output:
+    destination: 192.168.1.72:4560
