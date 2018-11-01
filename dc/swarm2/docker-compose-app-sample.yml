@@ -2,11 +2,9 @@ version: '3'
 services:
   app-sample-consume:
     image: wangyt/app-sample-consume:${IMAGE_VER}
-    networks:
-       - overlay
     deploy:
       placement:
-        constraints: [node.labels.type == cloud-cook]
+        constraints: [node.labels.type == cloud-cook-003]
       resources:
         limits:
           memory: 999M
@@ -26,11 +24,9 @@ services:
       - --spring.profiles.active=${SPRING_PROfILES_ACTIVE}
   app-sample-produce:
     image: wangyt/app-sample-produce:${IMAGE_VER}
-    networks:
-       - overlay
     deploy:
       placement:
-        constraints: [node.labels.type == cloud-cook]
+        constraints: [node.labels.type == cloud-cook-003]
       resources:
         limits:
           memory: 999M
@@ -49,4 +45,6 @@ services:
       - /app-sample-produce.jar
       - --spring.profiles.active=${SPRING_PROfILES_ACTIVE}
 networks:
-  overlay:
+  default:
+    external:
+      name: cloud-cook-overlay
