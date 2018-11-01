@@ -53,6 +53,7 @@ services:
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
     ports:
       - 7000:7000
+# 使用已存在的网络，事先建立好的
 networks:
   default:
     external:
