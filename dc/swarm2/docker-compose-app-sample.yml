@@ -21,7 +21,7 @@ services:
       - --
       - /filebeat-springboot-entrypoint.sh
       - /app-sample-consume.jar
-      - --spring.profiles.active=${SPRING_PROfILES_ACTIVE}
+      - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
   app-sample-produce:
     image: wangyt/app-sample-produce:${IMAGE_VER}
     deploy:
@@ -43,7 +43,7 @@ services:
       - --
       - /filebeat-springboot-entrypoint.sh
       - /app-sample-produce.jar
-      - --spring.profiles.active=${SPRING_PROfILES_ACTIVE}
+      - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
 networks:
   default:
     external:

@@ -7,9 +7,9 @@
 #
 # # cat .env 
 # IMAGE_VER=1.0.1-SNAPSHOT
-# SPRING_PROfILES_ACTIVE=intg
+# SPRING_PROFILES_ACTIVE=intg
 # # export $(cat .env)
-# # echo ${IMAGE_VER};echo ${SPRING_PROfILES_ACTIVE}
+# # echo ${IMAGE_VER};echo ${SPRING_PROFILES_ACTIVE}
 
 # docker network create -d overlay cloud-cook-overlay
 
@@ -28,7 +28,7 @@ services:
       - sh
       - /filebeat-springboot-entrypoint.sh
       - /eureka-server.jar
-      - --spring.profiles.active=${SPRING_PROfILES_ACTIVE}
+      - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
     ports:
       - 7777:7777
   config-server:
@@ -71,7 +71,7 @@ services:
       - --
       - /filebeat-springboot-entrypoint.sh
       - /gateway-service.jar
-      - --spring.profiles.active=${SPRING_PROfILES_ACTIVE}
+      - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
     ports:
       - 7000:7000
 networks:
