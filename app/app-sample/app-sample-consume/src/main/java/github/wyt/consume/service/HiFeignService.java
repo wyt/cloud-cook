@@ -12,8 +12,7 @@ import org.springframework.stereotype.Service;
 @SuppressWarnings("all")
 public class HiFeignService {
 
-  @Autowired
-  HiFeignClient hiFeignClient;
+  @Autowired HiFeignClient hiFeignClient;
 
   public String sayHi(String name) {
     return hiFeignClient.hiFromProduce(name);
