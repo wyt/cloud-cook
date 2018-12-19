@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
  * @author wangyongtao
  * @date 2018/7/16
  */
-@SuppressWarnings("all")
 @Configuration // 声明当前类是一个配置类，相当于spring的一个xml配置文件
 public class RibbonConfig {
 

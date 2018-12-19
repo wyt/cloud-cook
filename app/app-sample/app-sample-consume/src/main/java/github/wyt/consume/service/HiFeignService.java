@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
  * @date 2018/7/16
  */
 @Service
+@SuppressWarnings("all")
 public class HiFeignService {
 
   @Autowired

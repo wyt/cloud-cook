@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HiController {
 
-  @Autowired
-  RibbonService ribbonService;
+  @Autowired RibbonService ribbonService;
 
   /**
    * RestTemplate结合Ribbon调用
@@ -27,6 +26,8 @@ public class HiController {
   public String hi(@RequestParam(required = false, defaultValue = "wangyongtao") String name) {
     return ribbonService.hi(name);
   }
+
+  // ------------------------------------------//
 
   @Autowired HiFeignService hiFeignService;
 

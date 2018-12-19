@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
  * @date 2018/7/16
  */
 @Service
-@SuppressWarnings("all")
 public class RibbonService {
 
   @Autowired RestTemplate restTemplate;
