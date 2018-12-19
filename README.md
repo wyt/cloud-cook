@@ -19,6 +19,12 @@ http://localhost:9002/hi2?name=wangyongtao3
 
 API网关接口
 
+Rabbion方式调用
+
+http://localhost:7000/api/app-sample-consume/hi?name=wangyongtao
+
+Fegin方式调用
+
 http://localhost:7000/api/app-sample-consume/hi2?name=wangyongtao
 
 聚合监控
