@@ -12,13 +12,15 @@ spring:
      active: native
   application:
     name: config-server
-
 server:
   port: 7766
-
 eureka:
   instance:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://eureka-server:7777/eureka/,http://eureka-server2:7778/eureka/
+      currentDefaultZone: http://eureka-server:7777/eureka/
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:${eureka.client.serviceUrl.currentDefaultZone}}
+logging:
+  path: /applog
+  file: "${logging.path}/${spring.application.name}.log"
