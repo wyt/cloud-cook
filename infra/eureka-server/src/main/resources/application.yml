@@ -17,3 +17,6 @@ eureka:
     enable-self-preservation: false
     #清理间隔
     eviction-interval-timer-in-ms: 5000
+logging:
+  path: /applog
+  file: "${logging.path}/${spring.application.name}.log"
