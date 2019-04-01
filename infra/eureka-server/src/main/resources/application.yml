@@ -1,48 +1,19 @@
 spring:
   application:
-    name: eureka-server
-  ## 单机模式
-  profiles: default
+    name: ${SPRING_APPLICATION_NAME:eureka-server}
 server:
-  port: 7777
+  port: ${SERVER_PORT:7777}
 eureka:
   instance:
-    hostname: ${spring.application.name}
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:${spring.application.name}}
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: ${REGISTER_WITH_EUREKA:false}
+    fetchRegistry: ${FETCH_REGISTRY:false}
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-## 集群模式
----
-spring:
-  profiles: eureka-server
-  application:
-    name: eureka-server
-server:
-  port: 7777
-eureka:
-  instance:
-    hostname: eureka-server
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server2:7778/eureka/
+      currentDefaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:${eureka.client.serviceUrl.currentDefaultZone}}
   server:
+    #自我保护
     enable-self-preservation: false
-    eviction-interval-timer-in-ms: 5000
----
-spring:
-  profiles: eureka-server2
-  application:
-    name: eureka-server
-server:
-  port: 7778
-eureka:
-  instance:
-    hostname: eureka-server2
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server:7777/eureka/
-  server:
-    enable-self-preservation: false
+    #清理间隔
     eviction-interval-timer-in-ms: 5000
