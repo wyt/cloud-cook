@@ -5,7 +5,7 @@ services:
   #   CLUSTERS_EUREKA_SERVER_MODE值应为true
   #   CLUSTERS_EUREKA_SERVER_INSTANCE_HOSTNAME应该与serviceID一致
   eureka-server:
-    image: private.winchannel.net/dlink/eureka-server:${INFRA_IMAGE_VER}
+    image: wangyt/eureka-server:${INFRA_IMAGE_VER}
     deploy:
       placement:
         constraints: [node.labels.name == dlink-ops-03-backend-204]
@@ -23,7 +23,7 @@ services:
       - 7777:7777
 
   eureka-server-2:
-    image: private.winchannel.net/dlink/eureka-server:${INFRA_IMAGE_VER}
+    image: wangyt/eureka-server:${INFRA_IMAGE_VER}
     deploy:
       placement:
         constraints: [node.labels.name == dlink-ops-06-backend-205]
@@ -41,7 +41,7 @@ services:
       - 7777:7777
 
   config-server:
-    image: private.winchannel.net/dlink/config-server:${INFRA_IMAGE_VER}
+    image: wangyt/config-server:${INFRA_IMAGE_VER}
     deploy:
       placement:
         constraints: [node.labels.name == dlink-ops-03-backend-204]
@@ -62,7 +62,7 @@ services:
     ports:
       - 7766:7766
   gateway-service:
-    image: private.winchannel.net/dlink/gateway-service:${INFRA_IMAGE_VER}
+    image: wangyt/gateway-service:${INFRA_IMAGE_VER}
     deploy:
       mode: replicated
       replicas: 2
@@ -87,7 +87,7 @@ services:
     ports:
       - 7000:7000
   turbine-service:
-    image: private.winchannel.net/dlink/turbine-service:${INFRA_IMAGE_VER}
+    image: wangyt/turbine-service:${INFRA_IMAGE_VER}
     deploy:
       placement:
         constraints: [node.labels.name == dlink-ops-03-backend-204]
@@ -109,7 +109,7 @@ services:
     ports:
       - 7788:7788
   zipkin-service:
-    image: private.winchannel.net/dlink/zipkin-service:${INFRA_IMAGE_VER}
+    image: wangyt/zipkin-service:${INFRA_IMAGE_VER}
     deploy:
       placement:
         constraints: [node.labels.name == dlink-ops-03-backend-204]
@@ -133,4 +133,4 @@ services:
 networks:
   default:
     external:
-      name: dop-overlay
+      name: cloud-cook-overlay

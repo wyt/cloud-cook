@@ -1,7 +1,7 @@
 version: '3'
 services:
   app-dlink-device:
-    image: private.winchannel.net/dlink/app-dlink-device:${APP_IMAGE_VER}
+    image: wangyt/app-dlink-device:${APP_IMAGE_VER}
     deploy:
       mode: replicated
       replicas: 2
@@ -26,7 +26,7 @@ services:
       - /app-dlink-device.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
   app-dlink-plugin:
-    image: private.winchannel.net/dlink/app-dlink-plugin:${APP_IMAGE_VER}
+    image: wangyt/app-dlink-plugin:${APP_IMAGE_VER}
     deploy:
       mode: replicated
       replicas: 2
@@ -52,7 +52,7 @@ services:
       - /app-dlink-plugin.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
   app-dlink-script:
-    image: private.winchannel.net/dlink/app-dlink-script:${APP_IMAGE_VER}
+    image: wangyt/app-dlink-script:${APP_IMAGE_VER}
     deploy:
       mode: replicated
       replicas: 2
@@ -77,7 +77,7 @@ services:
       - /app-dlink-script.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
   app-dlink-release:
-    image: private.winchannel.net/dlink/app-dlink-release:${APP_IMAGE_VER}
+    image: wangyt/app-dlink-release:${APP_IMAGE_VER}
     deploy:
       mode: replicated
       replicas: 2
@@ -102,7 +102,7 @@ services:
       - /app-dlink-release.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
   app-dlink-analysis:
-    image: private.winchannel.net/dlink/app-dlink-analysis:${APP_IMAGE_VER}
+    image: wangyt/app-dlink-analysis:${APP_IMAGE_VER}
     deploy:
       mode: replicated
       replicas: 2
@@ -127,7 +127,7 @@ services:
       - /app-dlink-analysis.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
   app-storage-qiniu:
-    image: private.winchannel.net/dlink/app-storage-qiniu:${APP_IMAGE_VER}
+    image: wangyt/app-storage-qiniu:${APP_IMAGE_VER}
     deploy:
       mode: replicated
       replicas: 2
@@ -151,4 +151,4 @@ services:
 networks:
   default:
     external:
-      name: dop-overlay
+      name: cloud-cook-overlay
