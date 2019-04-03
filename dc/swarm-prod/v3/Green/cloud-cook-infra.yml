@@ -4,7 +4,7 @@ services:
     image: wangyt/eureka-server:${INFRA_IMAGE_VER}
     deploy:
       placement:
-        constraints: [node.labels.name == docker_001]
+        constraints: [node.labels.name == docker_005]
     environment:
       - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
       - REGISTER_WITH_EUREKA=true
@@ -22,25 +22,25 @@ services:
     image: wangyt/eureka-server:${INFRA_IMAGE_VER}
     deploy:
       placement:
-        constraints: [node.labels.name == docker_003]
+        constraints: [node.labels.name == docker_007]
     environment:
       - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
       - REGISTER_WITH_EUREKA=true
       - FETCH_REGISTRY=true
-      - SERVER_PORT=7777
-      - SPRING_APPLICATION_NAME=eureka-server
+      - SERVER_PORT=7778
+      - SPRING_APPLICATION_NAME=eureka-server-2
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
     entrypoint:
       - ./filebeat-springboot-entrypoint.sh
       - /eureka-server.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
     ports:
-      - 7777:7777
+      - 7778:7778
   config-server:
     image: wangyt/config-server:${INFRA_IMAGE_VER}
     deploy:
       placement:
-        constraints: [node.labels.name == docker_001]
+        constraints: [node.labels.name == docker_005]
     depends_on:
       - eureka-server
     environment:
