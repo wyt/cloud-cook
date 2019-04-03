@@ -1,21 +1,21 @@
 version: '3'
 services:
-  app-dlink-device:
-    image: wangyt/app-dlink-device:${APP_IMAGE_VER}
+  app-sample-consume:
+    image: wangyt/app-sample-consume:${IMAGE_VER}
     deploy:
       mode: replicated
       replicas: 2
       placement:
         constraints:
-          - node.labels.region == Blue
+          - node.labels.region == Green
     depends_on:
       - eureka-server
       - config-server
     ports:
-      - 9500:9500
+      - 9002:9002
     environment:
       - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
     entrypoint:
       - ./wait-for-it.sh
       - config-server:7766
@@ -23,25 +23,22 @@ services:
       - --strict
       - --
       - /filebeat-springboot-entrypoint.sh
-      - /app-dlink-device.jar
+      - /app-sample-consume.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
-  app-dlink-plugin:
-    image: wangyt/app-dlink-plugin:${APP_IMAGE_VER}
+  app-sample-produce:
+    image: wangyt/app-sample-produce:${IMAGE_VER}
     deploy:
-      mode: replicated
-      replicas: 2
       placement:
         constraints:
-          - node.labels.region == Blue
+          - node.labels.region == Green
     depends_on:
       - eureka-server
       - config-server
     ports:
-      #将端口9600映射为9601,避免可能跟logstash默认端口9600冲突
-      - 9601:9600
+      - 9003:9003
     environment:
       - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
     entrypoint:
       - ./wait-for-it.sh
       - config-server:7766
@@ -49,104 +46,7 @@ services:
       - --strict
       - --
       - /filebeat-springboot-entrypoint.sh
-      - /app-dlink-plugin.jar
-      - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
-  app-dlink-script:
-    image: wangyt/app-dlink-script:${APP_IMAGE_VER}
-    deploy:
-      mode: replicated
-      replicas: 2
-      placement:
-        constraints:
-          - node.labels.region == Blue
-    depends_on:
-      - eureka-server
-      - config-server
-    ports:
-      - 9700:9700
-    environment:
-      - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
-    entrypoint:
-      - ./wait-for-it.sh
-      - config-server:7766
-      - --timeout=0
-      - --strict
-      - --
-      - /filebeat-springboot-entrypoint.sh
-      - /app-dlink-script.jar
-      - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
-  app-dlink-release:
-    image: wangyt/app-dlink-release:${APP_IMAGE_VER}
-    deploy:
-      mode: replicated
-      replicas: 2
-      placement:
-        constraints:
-          - node.labels.region == Blue
-    depends_on:
-      - eureka-server
-      - config-server
-    ports:
-      - 9800:9800
-    environment:
-      - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
-    entrypoint:
-      - ./wait-for-it.sh
-      - config-server:7766
-      - --timeout=0
-      - --strict
-      - --
-      - /filebeat-springboot-entrypoint.sh
-      - /app-dlink-release.jar
-      - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
-  app-dlink-analysis:
-    image: wangyt/app-dlink-analysis:${APP_IMAGE_VER}
-    deploy:
-      mode: replicated
-      replicas: 2
-      placement:
-        constraints:
-          - node.labels.region == Blue
-    depends_on:
-      - eureka-server
-      - config-server
-    ports:
-      - 9900:9900
-    environment:
-      - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
-    entrypoint:
-      - ./wait-for-it.sh
-      - config-server:7766
-      - --timeout=0
-      - --strict
-      - --
-      - /filebeat-springboot-entrypoint.sh
-      - /app-dlink-analysis.jar
-      - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
-  app-storage-qiniu:
-    image: wangyt/app-storage-qiniu:${APP_IMAGE_VER}
-    deploy:
-      mode: replicated
-      replicas: 2
-      placement:
-        constraints:
-          - node.labels.region == Blue
-    ports:
-      - 9400:9400
-    environment:
-      - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
-    entrypoint:
-      - ./wait-for-it.sh
-      - config-server:7766
-      - --timeout=0
-      - --strict
-      - --
-      - /filebeat-springboot-entrypoint.sh
-      - /app-storage-qiniu.jar
+      - /app-sample-produce.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
 networks:
   default:

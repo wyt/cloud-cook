@@ -13,7 +13,7 @@ export SPRING_PROFILES_ACTIVE=$2
 # logstash地址
 export FILEBEAT_OP_LS_HOSTS=$3
 # EUREKA高可用地址列表
-export CLUSTERS_EUREKA_SERVER_URLS=http://eureka-server:7777/eureka/,http://eureka-server-2:7777/eureka/
+export EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:7777/eureka/,http://eureka-server-2:7777/eureka/
 
 # 工程模块，dlink-ops-infrastructure=INFRA;dlink-ops-platform=PLATFORM;dlink-ops-application=APPS;
 export PROJECT_MOUDLE=$4

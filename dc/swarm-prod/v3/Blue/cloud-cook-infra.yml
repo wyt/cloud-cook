@@ -4,13 +4,14 @@ services:
     image: wangyt/eureka-server:${INFRA_IMAGE_VER}
     deploy:
       placement:
-        constraints: [node.labels.name == dlink-ops-03-backend-204]
+        constraints: [node.labels.name == docker_001]
     environment:
       - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_MODE=true
-      - CLUSTERS_EUREKA_SERVER_PORT=7777
-      - CLUSTERS_EUREKA_SERVER_INSTANCE_HOSTNAME=eureka-server
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
+      - REGISTER_WITH_EUREKA=true
+      - FETCH_REGISTRY=true
+      - SERVER_PORT=7777
+      - SPRING_APPLICATION_NAME=eureka-server
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
     entrypoint:
       - ./filebeat-springboot-entrypoint.sh
       - /eureka-server.jar
@@ -21,13 +22,14 @@ services:
     image: wangyt/eureka-server:${INFRA_IMAGE_VER}
     deploy:
       placement:
-        constraints: [node.labels.name == dlink-ops-06-backend-205]
+        constraints: [node.labels.name == docker_003]
     environment:
       - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_MODE=true
-      - CLUSTERS_EUREKA_SERVER_PORT=7777
-      - CLUSTERS_EUREKA_SERVER_INSTANCE_HOSTNAME=eureka-server-2
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
+      - REGISTER_WITH_EUREKA=true
+      - FETCH_REGISTRY=true
+      - SERVER_PORT=7777
+      - SPRING_APPLICATION_NAME=eureka-server
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
     entrypoint:
       - ./filebeat-springboot-entrypoint.sh
       - /eureka-server.jar
@@ -38,12 +40,12 @@ services:
     image: wangyt/config-server:${INFRA_IMAGE_VER}
     deploy:
       placement:
-        constraints: [node.labels.name == dlink-ops-03-backend-204]
+        constraints: [node.labels.name == docker_001]
     depends_on:
       - eureka-server
     environment:
       - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
     entrypoint:
       - ./wait-for-it.sh
       - eureka-server:7777
@@ -68,7 +70,7 @@ services:
       - config-server
     environment:
       - FILEBEAT_OP_LS_HOSTS=${FILEBEAT_OP_LS_HOSTS}
-      - CLUSTERS_EUREKA_SERVER_URLS=${CLUSTERS_EUREKA_SERVER_URLS}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
     entrypoint:
       - ./wait-for-it.sh
       - config-server:7766
