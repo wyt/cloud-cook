@@ -48,6 +48,8 @@ services:
       - /filebeat-springboot-entrypoint.sh
       - /app-sample-produce.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
+    volumes:
+      - /apps/cloud-cook/.host_env:/.host_env
 networks:
   default:
     external:
