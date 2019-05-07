@@ -1,4 +1,4 @@
-FROM wangyongtao/springboot-assy-filebeat:1.1.9
+FROM wangyongtao/springboot-assy-filebeat:1.12.2
 
 MAINTAINER wangyongtao
 
