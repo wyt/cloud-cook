@@ -1,4 +1,4 @@
-FROM wangyongtao/springboot-assy-filebeat:1.12.3
+FROM io.mysnippet/cloud-assy:1.15.1
 
 MAINTAINER wangyongtao
 
