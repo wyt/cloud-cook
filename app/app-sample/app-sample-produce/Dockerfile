@@ -1,4 +1,4 @@
-FROM io.mysnippet/cloud-assy:1.15.1
+FROM wangyongtao/cloud-assy:1.15.1
 
 MAINTAINER wangyongtao
 
