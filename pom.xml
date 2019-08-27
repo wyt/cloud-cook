@@ -7,7 +7,7 @@
   <groupId>io.mysnippet</groupId>
   <artifactId>cloud-cook</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.2.0</version>
 
   <name>CloudCook</name>
   <description>Spring Cloud Cook</description>

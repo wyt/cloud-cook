@@ -7,7 +7,7 @@
   <parent>
     <artifactId>infra</artifactId>
     <groupId>io.mysnippet</groupId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.2.0</version>
   </parent>
   <artifactId>config-server</artifactId>
 
