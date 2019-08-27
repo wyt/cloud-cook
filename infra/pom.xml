@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>cloud-cook</artifactId>
-    <groupId>github.wyt</groupId>
+    <groupId>io.mysnippet</groupId>
     <version>1.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>infra</artifactId>
