@@ -14,7 +14,7 @@
 version: '3'
 services:
   eureka-server:
-    image: wangyt/eureka-server:${IMAGE_VER}
+    image: io.mysnippet/eureka-server:${IMAGE_VER}
     networks:
        - overlay
     deploy:
@@ -26,13 +26,13 @@ services:
     #优先使用compose中的entrypoint,而非Dockerfile
     entrypoint:
       - sh
-      - /filebeat-springboot-entrypoint.sh
+      - /cloud-assy-entrypoint.sh
       - /eureka-server.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
     ports:
       - 7777:7777
   config-server:
-    image: wangyt/config-server:${IMAGE_VER}
+    image: io.mysnippet/config-server:${IMAGE_VER}
     networks:
        - overlay
     deploy:
@@ -49,13 +49,13 @@ services:
       - --timeout=0
       - --strict
       - --
-      - /filebeat-springboot-entrypoint.sh
+      - /cloud-assy-entrypoint.sh
       - /config-server.jar
       - --spring.profiles.active=native
     ports:
       - 7766:7766
   gateway-service:
-    image: wangyt/gateway-service:${IMAGE_VER}
+    image: io.mysnippet/gateway-service:${IMAGE_VER}
     networks:
        - overlay
     deploy:
@@ -73,7 +73,7 @@ services:
       - --timeout=0
       - --strict
       - --
-      - /filebeat-springboot-entrypoint.sh
+      - /cloud-assy-entrypoint.sh
       - /gateway-service.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
     ports:

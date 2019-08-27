@@ -1,7 +1,7 @@
 version: '3'
 services:
   app-sample-consume:
-    image: wangyt/app-sample-consume:${IMAGE_VER}
+    image: io.mysnippet/app-sample-consume:${IMAGE_VER}
     deploy:
       placement:
         constraints: [node.labels.type == cloud-cook-003]
@@ -19,11 +19,11 @@ services:
       - --timeout=0
       - --strict
       - --
-      - /filebeat-springboot-entrypoint.sh
+      - /cloud-assy-entrypoint.sh
       - /app-sample-consume.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
   app-sample-produce:
-    image: wangyt/app-sample-produce:${IMAGE_VER}
+    image: io.mysnippet/app-sample-produce:${IMAGE_VER}
     deploy:
       placement:
         constraints: [node.labels.type == cloud-cook-003]
@@ -41,7 +41,7 @@ services:
       - --timeout=0
       - --strict
       - --
-      - /filebeat-springboot-entrypoint.sh
+      - /cloud-assy-entrypoint.sh
       - /app-sample-produce.jar
       - --spring.profiles.active=${SPRING_PROFILES_ACTIVE}
 networks:
