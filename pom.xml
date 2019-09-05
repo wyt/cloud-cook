@@ -86,7 +86,7 @@
             </execution>
           </executions>
           <configuration>
-            <repository>${project.groupId}/${project.artifactId}</repository>
+            <repository>mysnippet/${project.artifactId}</repository>
             <tag>${project.version}</tag>
             <buildArgs>
               <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

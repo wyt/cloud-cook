@@ -1,4 +1,4 @@
-FROM wangyongtao/cloud-assy:1.15.3
+FROM mysnippet/cloud-assy:1.15.4
 
 MAINTAINER wangyongtao
 
