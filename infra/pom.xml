@@ -19,5 +19,6 @@
     <module>eureka-server</module>
     <module>gateway-service</module>
     <module>config-server</module>
+    <module>turbine-service</module>
   </modules>
 </project>

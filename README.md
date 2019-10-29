@@ -46,9 +46,20 @@ http://app-sample-consume:9002/hi-feign?name=feign
 * http://gateway-service:7000/api/app-sample-consume/hi-ribbon?name=ribbon
 * http://gateway-service:7000/api/app-sample-consume/hi-feign?name=feign
 
-### 聚合监控
+#### 熔断监控
 
-http://localhost:8000/#/
+http://app-sample-consume:9002/hystrix
+http://app-sample-consume:9002/hystrix.stream
+
+http://app-sample-produce:9003/hystrix
+http://app-sample-produce:9003/hystrix.stream
+
+
+### 熔断聚合监控
+
+被监控的应用需要启用Hystrix Dashboard支持
+http://turbine-service:7788/hystrix
+http://turbine-service:7788/turbine.stream
 
 ### 链路追踪
 

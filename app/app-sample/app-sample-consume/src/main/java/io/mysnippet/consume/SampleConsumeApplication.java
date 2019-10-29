@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 /**
  * 使用Ribbon作为服务消费者的负载均衡器。 结合RestTemplate消费REST服务， RestTemplate是一个网络请求框架。
@@ -16,6 +17,7 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 @EnableEurekaClient
 @EnableFeignClients // 开启Feign Client功能
 @EnableHystrix // 开启熔断器功能
+@EnableHystrixDashboard // 开启熔断器Dashboard
 public class SampleConsumeApplication {
 
   public static void main(String[] args) {

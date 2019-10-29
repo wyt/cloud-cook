@@ -5,32 +5,39 @@
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>app-sample</artifactId>
+    <artifactId>infra</artifactId>
     <groupId>io.mysnippet</groupId>
     <version>1.2.0</version>
   </parent>
-  <artifactId>app-sample-consume</artifactId>
+  <artifactId>turbine-service</artifactId>
 
-  <name>App Sample Consume</name>
-  <description>消费样例</description>
+  <name>Turbine Service</name>
+  <description>Turbine Service(熔断聚合监控)</description>
 
   <dependencies>
     <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-turbine</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-config</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
-    <!-- Ribbon负载均衡组件 -->
+    <!--hystrix-dashboard-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-ribbon</artifactId>
+      <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
     </dependency>
-    <!-- Feign声明式调用 -->
+    <!--hystrix -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-feign</artifactId>
+      <artifactId>spring-cloud-starter-hystrix</artifactId>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
