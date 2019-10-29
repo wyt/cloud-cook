@@ -7,7 +7,13 @@
 在Win环境下开发，在本地设置host
 
 ``` bash
-127.0.0.1 eureka-server
+127.0.0.1 		eureka-server
+127.0.0.1 		config-server
+127.0.0.1 		gateway-service
+127.0.0.1		turbine-service
+127.0.0.1		zipkin-service
+127.0.0.1 		app-sample-produce
+127.0.0.1		app-sample-consume
 ```
 
 启动
@@ -55,7 +61,7 @@ http://app-sample-produce:9003/hystrix
 http://app-sample-produce:9003/hystrix.stream
 
 
-### 熔断聚合监控
+#### 熔断聚合监控
 
 被监控的应用需要启用Hystrix Dashboard支持
 http://turbine-service:7788/hystrix
@@ -63,7 +69,7 @@ http://turbine-service:7788/turbine.stream
 
 ### 链路追踪
 
-http://localhost:7755
+http://zipkin-service:7755
 
 ### 参考
 

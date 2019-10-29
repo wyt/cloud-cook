@@ -1,6 +1,6 @@
 spring:
   application:
-    name: turbine-service
+    name: zipkin-service
   cloud:
     config:
       profile: dev
@@ -8,6 +8,8 @@ spring:
         enabled: true
         service-id: config-server
       fail-fast: true
+server:
+  port: 7755
 eureka:
   client:
     serviceUrl:
@@ -16,15 +18,3 @@ eureka:
 logging:
   path: /applog
   file: "${logging.path}/${spring.application.name}.log"
-server:
-  port: 7788
-
-security:
-  basic:
-    enabled: false
-
-turbine:
-  aggregator:
-    clusterConfig: default
-  appConfig: app-sample-consume , app-sample-produce
-  clusterNameExpression: new String("default")

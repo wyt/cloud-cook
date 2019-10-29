@@ -20,5 +20,6 @@
     <module>gateway-service</module>
     <module>config-server</module>
     <module>turbine-service</module>
+    <module>zipkin-service</module>
   </modules>
 </project>
