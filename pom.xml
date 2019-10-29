@@ -97,10 +97,10 @@
       </plugins>
     </pluginManagement>
   </build>
-
   <modules>
     <module>infra</module>
     <module>app</module>
     <module>cmn</module>
+    <module>pfm</module>
   </modules>
 </project>

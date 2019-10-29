@@ -71,6 +71,10 @@ http://turbine-service:7788/turbine.stream
 
 http://zipkin-service:7755
 
+### 应用监控
+
+http://pfm-monitor:8000
+
 ### 参考
 
 https://cloud.spring.io/spring-cloud-static/Edgware.SR6/single/spring-cloud.html
