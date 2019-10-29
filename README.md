@@ -42,9 +42,9 @@ http://app-sample-consume:9002/hi-feign?name=feign
 
 #### 经应用网关调用
 
-* http://gateway-service:7000/api/app-sample-produce:9003/hi?name=foobar
-* http://gateway-service:7000/api/app-sample-consume:9002/hi-ribbon?name=ribbon
-* http://gateway-service:7000/api/app-sample-consume:9002/hi-feign?name=feign
+* http://gateway-service:7000/api/app-sample-produce/hi?name=foobar
+* http://gateway-service:7000/api/app-sample-consume/hi-ribbon?name=ribbon
+* http://gateway-service:7000/api/app-sample-consume/hi-feign?name=feign
 
 ### 聚合监控
 

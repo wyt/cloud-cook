@@ -23,3 +23,7 @@ eureka:
 logging:
   path: /applog
   file: "${logging.path}/${spring.application.name}.log"
+
+ribbon:
+  ReadTimeout: 6000
+  ConnectTimeout: 6000
