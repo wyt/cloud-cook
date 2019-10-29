@@ -29,9 +29,9 @@ public class HiController {
         + name
         + ", I am from "
         + appName
-        + " and the port is:"
+        + " and the port is "
         + port
-        + " and the config test value is :"
+        + " and the config test value is "
         + configTestValue;
   }
 }
