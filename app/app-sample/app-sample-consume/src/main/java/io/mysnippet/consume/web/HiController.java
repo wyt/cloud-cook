@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HiController {
 
-  @Autowired RibbonService ribbonService;
+  @Autowired
+  RibbonService ribbonService;
 
   /**
    * RestTemplate结合Ribbon调用
@@ -22,14 +23,15 @@ public class HiController {
    * @param name
    * @return
    */
-  @GetMapping("/hi")
-  public String hi(@RequestParam(required = false, defaultValue = "wangyongtao") String name) {
+  @GetMapping("/hi-ribbon")
+  public String hiRibbon(@RequestParam(required = false, defaultValue = "foobar") String name) {
     return ribbonService.hi(name);
   }
 
   // ------------------------------------------//
 
-  @Autowired HiFeignService hiFeignService;
+  @Autowired
+  HiFeignService hiFeignService;
 
   /**
    * Feign声明式调用,Feign默认拥有负载均衡能力
@@ -37,8 +39,8 @@ public class HiController {
    * @param name
    * @return
    */
-  @GetMapping("/hi2")
-  public String hi2(@RequestParam(required = false, defaultValue = "wangyongtao") String name) {
+  @GetMapping("/hi-feign")
+  public String hiFeign(@RequestParam(required = false, defaultValue = "foobar") String name) {
     return hiFeignService.sayHi(name);
   }
 }

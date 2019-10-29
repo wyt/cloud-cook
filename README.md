@@ -1,6 +1,6 @@
-### Spring Cloud Cook
+## 概述
 
-#### Eureka server
+### Eureka server
 
 注册中心
 
@@ -17,47 +17,47 @@ mvn spring-boot:run
 
 访问 http://eureka-server:7777
 
-#### Config server
+### Config server
 
 配置中心
 
 访问 http://config-server:7766/application-dev.yml
 
-#### Gateway service
+### Gateway service
 
 应用网关
 
 访问 http://gateway-service:7000/health
 
-#### 示例
+### 示例
 
-直接请求生产者示例接口
-http://app-sample-produce:9003/hi?name=foo
+#### 直接请求生产者示例接口
+http://app-sample-produce:9003/hi?name=foobar
 
-http://localhost:9002/hi2?name=bar
+#### 直接请求消费者示例接口
+##### Rabbion方式调用
+http://app-sample-consume:9002/hi-ribbon?name=ribbon
+##### Fegin方式调用(伪RPC调用,dubbo)
+http://app-sample-consume:9002/hi-feign?name=feign
 
-API网关接口
+#### 经应用网关调用
 
-Rabbion方式调用
+* http://gateway-service:7000/api/app-sample-produce:9003/hi?name=foobar
+* http://gateway-service:7000/api/app-sample-consume:9002/hi-ribbon?name=ribbon
+* http://gateway-service:7000/api/app-sample-consume:9002/hi-feign?name=feign
 
-http://localhost:7000/api/app-sample-consume/hi?name=foobar
-
-Fegin方式调用(伪RPC调用,dubbo)
-
-http://localhost:7000/api/app-sample-consume/hi2?name=foobar
-
-#### 聚合监控
+### 聚合监控
 
 http://localhost:8000/#/
 
-#### 链路追踪
+### 链路追踪
 
 http://localhost:7755
 
-#### 参考
+### 参考
 
 https://cloud.spring.io/spring-cloud-static/Edgware.SR6/single/spring-cloud.html
 
-#### 参与贡献
+### 参与贡献
     
 * WANG YONG TAO ([@wangyt](https://yongtao.wang))
