@@ -12,6 +12,7 @@
 127.0.0.1 		gateway-service
 127.0.0.1		turbine-service
 127.0.0.1		zipkin-service
+127.0.0.1		pfm-monitor
 127.0.0.1 		app-sample-produce
 127.0.0.1		app-sample-consume
 ```
