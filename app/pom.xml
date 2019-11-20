@@ -15,34 +15,6 @@
   <name>app</name>
   <description>CloudCook app(应用层服务)</description>
 
-  <dependencies>
-    <!-- Eureka注册中心客户端起步依赖 -->
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-eureka</artifactId>
-    </dependency>
-    <!-- Config起步依赖 -->
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-config</artifactId>
-    </dependency>
-    <!-- Actuator监视管理Springboot应用 -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>net.logstash.logback</groupId>
-      <artifactId>logstash-logback-encoder</artifactId>
-      <version>5.2</version>
-    </dependency>
-  </dependencies>
-
   <modules>
     <module>app-sample</module>
   </modules>

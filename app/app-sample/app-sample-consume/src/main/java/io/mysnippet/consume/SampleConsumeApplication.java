@@ -3,8 +3,8 @@ package io.mysnippet.consume;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * 使用Ribbon作为服务消费者的负载均衡器。 结合RestTemplate消费REST服务， RestTemplate是一个网络请求框架。

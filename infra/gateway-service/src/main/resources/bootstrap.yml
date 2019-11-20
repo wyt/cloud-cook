@@ -11,6 +11,29 @@ spring:
     inetutils:
       preferred-networks:
         - 10.0
+    gateway:
+      routes:
+        - id: appSampleConsume
+          uri: lb://app-sample-consume
+          predicates:
+            - Path=/app-sample-consume/**
+          filters:
+            - StripPrefix=1
+            - name: Hystrix
+              args:
+                name: appSampleConsume
+                fallbackUri: forward:/gateway_fallback
+        - id: appSampleProduce
+          uri: lb://app-sample-produce
+          predicates:
+            - Path=/app-sample-produce/**
+          filters:
+            - StripPrefix=1
+            - name: Hystrix
+              args:
+                name: appSampleProduce
+                fallbackUri: forward:/gateway_fallback
+
 server:
   port: 7000
 eureka:

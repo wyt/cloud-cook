@@ -3,6 +3,7 @@ package io.mysnippet.consume.web;
 import io.mysnippet.consume.service.RibbonService;
 import io.mysnippet.consume.service.HiFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class HiController {
 
   @Autowired RibbonService ribbonService;
+
+  @Value("${spring.application.name}")
+  String appName;
+
+  @GetMapping("/whoami")
+  public String whoami() throws InterruptedException {
+
+//    TimeUnit.SECONDS.sleep(20);
+    return "I am " + appName;
+  }
 
   /**
    * RestTemplate结合Ribbon调用

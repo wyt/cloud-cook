@@ -28,3 +28,7 @@ logging:
 logstash:
   output:
     destination: 192.168.1.72:4560
+
+config:
+  test:
+    value: 10

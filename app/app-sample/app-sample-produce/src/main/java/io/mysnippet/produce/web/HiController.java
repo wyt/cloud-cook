@@ -23,6 +23,12 @@ public class HiController {
   @Value("${config.test.value}")
   String configTestValue;
 
+  @GetMapping("/whoami")
+  public String whoami() throws InterruptedException {
+//    TimeUnit.SECONDS.sleep(20);
+    return "I am " + appName;
+  }
+
   @GetMapping("/hi")
   public String home(@RequestParam String name) {
     return "Hi "
