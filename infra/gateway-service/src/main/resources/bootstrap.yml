@@ -37,6 +37,12 @@ spring:
 hystrix.command.appSampleConsume.execution.isolation.thread.timeoutInMilliseconds: 5000
 hystrix.command.appSampleProduce.execution.isolation.thread.timeoutInMilliseconds: 5000
 
+hystrix.command.appSampleConsume.execution.isolation.strategy: SEMAPHORE
+hystrix.command.appSampleConsume.execution.isolation.strategy.semaphore.maxConcurrentRequests: 20
+
+hystrix.command.appSampleProduce.execution.isolation.strategy: SEMAPHORE
+hystrix.command.appSampleProduce.execution.isolation.strategy.semaphore.maxConcurrentRequests: 10
+
 server:
   port: 7000
 eureka:

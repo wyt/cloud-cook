@@ -27,7 +27,7 @@ public class HiController {
 
   @GetMapping("/whoami")
   public String whoami() throws InterruptedException {
-    TimeUnit.SECONDS.sleep(10);
+//    TimeUnit.SECONDS.sleep(10);
     return "I am " + appName;
   }
 
