@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author wangyongtao
  * @date 2018/7/16
@@ -23,7 +25,7 @@ public class HiController {
   @GetMapping("/whoami")
   public String whoami() throws InterruptedException {
 
-//    TimeUnit.SECONDS.sleep(20);
+    TimeUnit.SECONDS.sleep(20);
     return "I am " + appName;
   }
 

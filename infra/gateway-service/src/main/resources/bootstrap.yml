@@ -22,7 +22,7 @@ spring:
             - name: Hystrix
               args:
                 name: appSampleConsume
-                fallbackUri: forward:/gateway_fallback
+                fallbackUri: forward:/consume_fallback
         - id: appSampleProduce
           uri: lb://app-sample-produce
           predicates:
@@ -32,7 +32,10 @@ spring:
             - name: Hystrix
               args:
                 name: appSampleProduce
-                fallbackUri: forward:/gateway_fallback
+                fallbackUri: forward:/produce_fallback
+
+hystrix.command.appSampleConsume.execution.isolation.thread.timeoutInMilliseconds: 5000
+hystrix.command.appSampleProduce.execution.isolation.thread.timeoutInMilliseconds: 5000
 
 server:
   port: 7000
