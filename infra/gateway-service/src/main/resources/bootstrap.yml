@@ -34,14 +34,24 @@ spring:
                 name: appSampleProduce
                 fallbackUri: forward:/produce_fallback
 
-hystrix.command.appSampleConsume.execution.isolation.thread.timeoutInMilliseconds: 5000
-hystrix.command.appSampleProduce.execution.isolation.thread.timeoutInMilliseconds: 5000
-
-hystrix.command.appSampleConsume.execution.isolation.strategy: SEMAPHORE
-hystrix.command.appSampleConsume.execution.isolation.strategy.semaphore.maxConcurrentRequests: 20
-
-hystrix.command.appSampleProduce.execution.isolation.strategy: SEMAPHORE
-hystrix.command.appSampleProduce.execution.isolation.strategy.semaphore.maxConcurrentRequests: 10
+hystrix:
+  command:
+    appSampleConsume:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          semaphore:
+            maxConcurrentRequests: 50
+          thread:
+            timeoutInMilliseconds: 5000
+    appSampleProduce:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          semaphore:
+            maxConcurrentRequests: 5
+          thread:
+            timeoutInMilliseconds: 5000
 
 server:
   port: 7000
