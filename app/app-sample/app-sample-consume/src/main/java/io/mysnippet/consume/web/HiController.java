@@ -1,7 +1,7 @@
 package io.mysnippet.consume.web;
 
-import io.mysnippet.consume.service.RibbonService;
 import io.mysnippet.consume.service.HiFeignService;
+import io.mysnippet.consume.service.RibbonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +24,13 @@ public class HiController {
 
   @GetMapping("/whoami")
   public String whoami() throws InterruptedException {
-//    TimeUnit.SECONDS.sleep(10);
     return "I am " + appName;
+  }
+
+  @GetMapping("/upload")
+  public String upload() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(6);
+    return "File uploaded successfully. " + appName;
   }
 
   /**

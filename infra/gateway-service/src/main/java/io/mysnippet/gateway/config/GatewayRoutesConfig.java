@@ -22,13 +22,30 @@ public class GatewayRoutesConfig {
             .route(
                 "appSampleConsume",
                 r ->
-                    r.path("/app-sample-consume/**")
+                    r.order(0)
+                        .path("/app-sample-consume/**")
                         .filters(
                             f -> {
                               f.stripPrefix(1);
                               f.hystrix(
                                   config -> {
                                     config.setName("appSampleConsume");
+                                    config.setFallbackUri("forward:/consume_fallback");
+                                  });
+                              return f;
+                            })
+                        .uri("lb://app-sample-consume"))
+            .route(
+                "appSampleConsumeUpload",
+                r ->
+                    r.order(-1)
+                        .path("/app-sample-consume/upload/**")
+                        .filters(
+                            f -> {
+                              f.stripPrefix(1);
+                              f.hystrix(
+                                  config -> {
+                                    config.setName("appSampleConsumeUpload");
                                     config.setFallbackUri("forward:/consume_fallback");
                                   });
                               return f;

@@ -41,9 +41,17 @@ hystrix:
         isolation:
           strategy: SEMAPHORE
           semaphore:
-            maxConcurrentRequests: 50
+            maxConcurrentRequests: 40
           thread:
             timeoutInMilliseconds: 5000
+    appSampleConsumeUpload:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          semaphore:
+            maxConcurrentRequests: 10
+          thread:
+            timeoutInMilliseconds: 10000
     appSampleProduce:
       execution:
         isolation:
