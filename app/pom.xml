@@ -15,6 +15,13 @@
   <name>app</name>
   <description>CloudCook app(应用层服务)</description>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+  </dependencies>
+
   <modules>
     <module>app-sample</module>
   </modules>
