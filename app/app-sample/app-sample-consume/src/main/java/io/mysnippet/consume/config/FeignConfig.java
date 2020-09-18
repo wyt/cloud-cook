@@ -1,10 +1,10 @@
 package io.mysnippet.consume.config;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 import feign.Retryer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * IoC容器中注册一个feignRetryer Bean

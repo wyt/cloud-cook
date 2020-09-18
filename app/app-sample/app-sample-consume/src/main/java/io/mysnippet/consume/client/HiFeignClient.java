@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2018/7/16
  */
 @FeignClient(
-  value = "app-sample-produce",
-  configuration = FeignConfig.class,
-  fallback = HiFeignClientFallBack.class
-)
+    value = "app-sample-produce",
+    configuration = FeignConfig.class,
+    fallback = HiFeignClientFallBack.class)
 public interface HiFeignClient {
 
   /**
