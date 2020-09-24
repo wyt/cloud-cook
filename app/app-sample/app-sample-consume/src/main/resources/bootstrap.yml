@@ -1,28 +1,19 @@
 spring:
   application:
     name: app-sample-consume
+  profiles:
+    active: dev
   cloud:
-    config:
-      profile: dev
-      discovery:
-        enabled: true
-        service-id: config-server
-      fail-fast: true
     inetutils:
       preferred-networks:
         - 10.0
 server:
   port: 9002
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    serviceUrl:
-      currentDefaultZone: http://eureka-server:7777/eureka/
-      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:${eureka.client.serviceUrl.currentDefaultZone}}
+
 logging:
   path: /applog
   file: "${logging.path}/${spring.application.name}.log"
+
 # ELk环境,logtash收集入口
 logstash:
   output:
