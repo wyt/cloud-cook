@@ -6,6 +6,6 @@ spring:
         file-extension: yml
         group: DEFAULT_GROUP
         namespace: cd9b18a3-f736-434e-84cd-e57259d78228
-        server-addr: 192.168.101.147:8848
+        server-addr: arch.nacos.mysnippet.io
       discovery:
-        server-addr: 192.168.101.147:8848
+        server-addr: arch.nacos.mysnippet.io
