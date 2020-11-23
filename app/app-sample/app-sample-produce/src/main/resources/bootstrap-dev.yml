@@ -7,5 +7,12 @@ spring:
         group: DEFAULT_GROUP
         namespace: cd9b18a3-f736-434e-84cd-e57259d78228
         server-addr: arch.nacos.mysnippet.io
+        username: nacos
+        password: nacos
       discovery:
         server-addr: arch.nacos.mysnippet.io
+        metadata:
+          region: cn-beijing
+          availability-zone: zone-01
+        username: nacos
+        password: nacos
