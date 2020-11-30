@@ -73,3 +73,12 @@ eureka:
 logging:
   path: /applog
   file: "${logging.path}/${spring.application.name}.log"
+
+management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  endpoints:
+    web:
+      exposure:
+        include: "*"
