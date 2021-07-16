@@ -23,6 +23,15 @@
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-zuul</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.csp</groupId>
+      <artifactId>sentinel-zuul-adapter</artifactId>
+      <version>1.8.2</version>
+    </dependency>
     <!-- zipkin-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
