@@ -19,6 +19,8 @@ http://localhost:9002/hi2?name=wangyongtao3
 
 API网关接口
 
+http://localhost:7000/api/app-sample-produce/hi?name=wangyongtao1
+
 http://localhost:7000/api/app-sample-consume/hi2?name=wangyongtao
 
 聚合监控
