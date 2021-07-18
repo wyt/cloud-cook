@@ -2,9 +2,9 @@ spring:
   application:
     name: gateway-service
   cloud:
-    sentinel:
-      transport:
-        dashboard: localhost:8080
+#    sentinel:
+#      transport:
+#        dashboard: 192.168.101.147:8080
     config:
       profile: dev
       discovery:
