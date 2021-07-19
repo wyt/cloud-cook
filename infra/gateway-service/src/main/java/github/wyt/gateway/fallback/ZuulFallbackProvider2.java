@@ -21,8 +21,11 @@ public class ZuulFallbackProvider2 implements ZuulBlockFallbackProvider {
         String.format("[Sentinel DefaultBlockFallbackProvider] Run fallback route: %s", route));
 
     if (cause instanceof BlockException) {
+
+      String name = request.getParameter("name");
+
       BlockResponse blockResponse = new BlockResponse(200, null, route);
-      String respBody = "{\"code\":\"200\",\"msg\":\"哥们儿我被限流了2\"}";
+      String respBody = "{\"code\":\"200\",\"msg\":\"哥们:" + name + "，你被限流了2\"}";
       blockResponse.setRespBody(respBody);
       return blockResponse;
     } else {
