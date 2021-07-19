@@ -3,9 +3,9 @@ package github.wyt.gateway.config;
 import com.alibaba.csp.sentinel.adapter.gateway.zuul.fallback.ZuulBlockFallbackManager;
 import com.alibaba.csp.sentinel.adapter.gateway.zuul.filters.SentinelZuulErrorFilter;
 import com.alibaba.csp.sentinel.adapter.gateway.zuul.filters.SentinelZuulPostFilter;
-import com.alibaba.csp.sentinel.adapter.gateway.zuul.filters.SentinelZuulPreFilter;
 import com.netflix.zuul.ZuulFilter;
-import github.wyt.gateway.fallback.ZuulFallbackProvider;
+import github.wyt.gateway.fallback.ZuulFallbackProvider2;
+import github.wyt.gateway.zuul.enhance.filters.SentinelZuulPreFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -34,7 +34,7 @@ public class ZuulConfig {
   /** 注册 ZuulFallbackProvider */
   @PostConstruct
   public void doInit() {
-    ZuulBlockFallbackManager.registerProvider(new ZuulFallbackProvider());
+    ZuulBlockFallbackManager.registerProvider(new ZuulFallbackProvider2());
     //    initGatewayRules();
   }
 
